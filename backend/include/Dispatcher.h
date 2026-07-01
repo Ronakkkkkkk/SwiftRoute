@@ -8,16 +8,27 @@
 
 class Dispatcher {
 public:
-    // currentTime = simulated clock tick when this order comes in
-    static void assignOrder(
+    // Optimized: assigns the NEAREST available rider.
+    // Returns total travel distance (pickup + delivery), or -1 if no rider available.
+    static int assignOrder(
         Graph& graph,
         std::vector<Rider>& riders,
         const Order& order,
         int currentTime
     );
 
-    // Frees up any rider whose busyUntil has passed
     static void releaseFinishedRiders(std::vector<Rider>& riders, int currentTime);
+
+    // Naive baseline: assigns the FIRST available rider found,
+    // ignoring distance entirely. Used only for benchmarking
+    // against the optimized nearest-rider strategy.
+    // Returns total travel distance (pickup + delivery), or -1 if no rider available.
+    static int assignOrderNaive(
+        Graph& graph,
+        std::vector<Rider>& riders,
+        const Order& order,
+        int currentTime
+    );
 };
 
 #endif
