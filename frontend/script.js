@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8080";
+const API_BASE = "https://swiftroute-zfzu.onrender.com";
 
 // --- Graph data (kept in sync manually with the C++ backend) ---
 const nodePositions = {
