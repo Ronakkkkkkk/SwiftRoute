@@ -12,11 +12,11 @@ Given a city road network, a fleet of riders scattered across it, and a live str
 
 ```
 ┌─────────────────────┐        HTTP / JSON        ┌──────────────────────┐
-│   Frontend (JS)      │  ─────────────────────►   │   Backend (C++)       │
-│   Leaflet.js map      │  ◄─────────────────────   │   cpp-httplib server  │
-│   Polls /riders        │                            │   Graph + Dispatcher  │
-│   Posts to /order       │                            │   Dijkstra + Heaps     │
-└─────────────────────┘                            └──────────────────────┘
+│   Frontend (JS)     │  ─────────────────────►   │   Backend (C++)      │
+│   Leaflet.js map    │  ◄─────────────────────   │   cpp-httplib serve  │
+│   Polls /riders     │                           │   Graph + Dispatcher │
+│   Posts to /orde    │                           │   Dijkstra + Heaps   │
+└─────────────────────┘                           └──────────────────────┘
 ```
 
 - **Backend**: C++17, exposes a small REST API (`cpp-httplib`) around a graph-based routing/dispatch engine.
