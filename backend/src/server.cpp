@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <cstdlib>
 
 // Very small hand-rolled JSON builder — no external JSON lib needed
 // for a project this size. (For anything bigger, you'd reach for
@@ -97,7 +98,12 @@ int main() {
     svr.Options(R"(/.*)", [](const httplib::Request&, httplib::Response& res) {
         res.status = 200;
     });
-    svr.listen("0.0.0.0", 8080);
+    int port = 8080;
+    if (const char* envPort = std::getenv("PORT")) {
+        port = std::atoi(envPort);
+    }
+    std::cout << "SwiftRoute server running on port " << port << "\n";
+    svr.listen("0.0.0.0", port);
 
     return 0;
 }
