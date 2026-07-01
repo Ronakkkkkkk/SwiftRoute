@@ -1,0 +1,10 @@
+# C++ build artifacts
+backend/swiftroute_server.exe
+backend/swiftroute_cli.exe
+backend/*.o
+backend/*.obj
+
+# Editor/OS files
+.vscode/
+.DS_Store
+Thumbs.db
