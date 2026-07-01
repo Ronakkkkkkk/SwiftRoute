@@ -1,6 +1,5 @@
 # C++ build artifacts
-backend/swiftroute_server.exe
-backend/swiftroute_cli.exe
+backend/*.exe
 backend/*.o
 backend/*.obj
 
